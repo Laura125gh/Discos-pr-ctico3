@@ -1,0 +1,185 @@
+/* Configuración general */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(135deg, #121226, #24183D, #17172F);
+  color: #F7F5FF;
+}
+
+/* Contenedor principal */
+#root {
+  min-height: 100vh;
+}
+
+.contenedor {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 50px 20px;
+}
+
+/* Título principal */
+h1 {
+  font-size: 42px;
+  color: #F7F5FF;
+  text-align: center;
+  margin-bottom: 35px;
+  letter-spacing: 2px;
+  text-shadow: 0 0 20px rgba(155, 93, 229, 0.5);
+}
+
+/* Tarjeta del disco */
+.tarjeta-disco {
+  width: 100%;
+  max-width: 650px;
+  background: linear-gradient(145deg, #252541, #1B1B32);
+  border: 1px solid #454568;
+  border-radius: 24px;
+  padding: 28px;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.tarjeta-disco:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 45px rgba(155, 93, 229, 0.18);
+}
+
+/* Título del disco */
+.tarjeta-disco h2 {
+  font-size: 28px;
+  color: #C9A7FF;
+  margin-bottom: 18px;
+}
+
+/* Número de página */
+.pagina {
+  color: #B9B5D1;
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+
+/* Imagen del disco */
+.imagen-disco {
+  display: block;
+  width: 100%;
+  max-width: 500px;
+  height: auto;
+  object-fit: contain;
+  margin: 0 auto 22px;
+  background: transparent;
+  animation: deslizar 0.6s ease;
+  animation: girar-disco 20s linear infinite;
+}
+
+/* Descripción */
+.descripcion {
+  font-size: 16px;
+  line-height: 1.8;
+  color: #E0DDF0;
+  margin-bottom: 28px;
+}
+
+/* Botones */
+.botones {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.botones button {
+  background: linear-gradient(135deg, #9B5DE5, #7542C8);
+  color: #FFFFFF;
+  border: none;
+  padding: 12px 28px;
+  min-width: 125px;
+  border-radius: 30px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.25s, box-shadow 0.25s,
+    background 0.25s;
+}
+
+.botones button:hover:not(:disabled) {
+  background: linear-gradient(135deg, #00D4FF, #00A8CC);
+  color: #121226;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(0, 212, 255, 0.25);
+}
+
+/* Botones deshabilitados */
+.botones button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+/* Animación de giro del disco */
+@keyframes girar-disco {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Animación al cambiar de disco */
+@keyframes deslizar {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Adaptación para celulares */
+@media (max-width: 600px) {
+  .contenedor {
+    padding: 30px 15px;
+  }
+
+  h1 {
+    font-size: 32px;
+    margin-bottom: 25px;
+  }
+
+  .tarjeta-disco {
+    padding: 20px;
+    border-radius: 20px;
+  }
+
+  .tarjeta-disco h2 {
+    font-size: 23px;
+  }
+
+  .imagen-disco {
+    height: 250px;
+  }
+
+  .descripcion {
+    font-size: 14px;
+  }
+
+  .botones {
+    gap: 10px;
+  }
+
+  .botones button {
+    padding: 11px 20px;
+    min-width: 110px;
+  }
+}
